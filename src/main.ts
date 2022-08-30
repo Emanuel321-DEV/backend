@@ -9,6 +9,6 @@ async function bootstrap() {
   app.useGlobalPipes(
     new ValidationPipe({ whitelist: true, forbidNonWhitelisted: true }),
   ); // Força que uma excecao ocorra quando der um err, assim podemos ver melhor os dados do err no insomnia por ex
-  await app.listen(3001);
+  await app.listen(process.env.PORT || 3001);
 }
 bootstrap();

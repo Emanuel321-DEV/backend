@@ -18,11 +18,7 @@ import { CompanyModule } from './company/company.module';
     ConfigModule.forRoot(), // Permite o uso do process.env (P var de ambiente)
     TypeOrmModule.forRoot({
       type: process.env.TYPEORM_CONNECTION,
-      host: process.env.TYPEORM_HOST,
-      port: process.env.TYPEORM_PORT,
-      username: process.env.TYPEORM_USERNAME,
-      password: process.env.TYPEORM_PASSWORD,
-      database: process.env.TYPEORM_DATABASE,
+      url: process.env.DATABASE_URL,
       entities: [
         CompanyEntity,
         LocalEntity,
