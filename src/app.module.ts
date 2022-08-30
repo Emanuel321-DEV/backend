@@ -17,7 +17,7 @@ import { CompanyModule } from './company/company.module';
   imports: [
     ConfigModule.forRoot(), // Permite o uso do process.env (P var de ambiente)
     TypeOrmModule.forRoot({
-      type: process.env.TYPEORM_CONNECTION,
+      type: 'postgres',
       url: process.env.DATABASE_URL,
       entities: [
         CompanyEntity,
@@ -26,7 +26,7 @@ import { CompanyModule } from './company/company.module';
         TicketEntity,
         UsersEntity,
       ],
-      synchronize: true, // Nao utilizar em prod
+      // synchronize: true, // Nao utilizar em prod
     } as TypeOrmModuleOptions),
     UsersModule, //criado em aula
     CompanyModule,
