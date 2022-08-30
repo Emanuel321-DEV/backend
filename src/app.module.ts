@@ -19,7 +19,7 @@ import { CompanyModule } from './company/company.module';
     TypeOrmModule.forRoot({
       type: 'postgres',
       url: process.env.DATABASE_URL,
-      ssl: true,
+      ssl: { rejectUnauthorized: false },
       entities: [
         CompanyEntity,
         LocalEntity,
