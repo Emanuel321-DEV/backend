@@ -17,8 +17,12 @@ import { CompanyModule } from './company/company.module';
   imports: [
     ConfigModule.forRoot(), // Permite o uso do process.env (P var de ambiente)
     TypeOrmModule.forRoot({
-      type: 'postgres',
-      url: process.env.DATABASE_URL,
+      type: process.env.TYPEORM_CONNECTION,
+      host: process.env.TYPEORM_HOST,
+      port: process.env.TYPEORM_PORT,
+      username: process.env.TYPEORM_USERNAME,
+      password: process.env.TYPEORM_PASSWORD,
+      database: process.env.DATABASE,
       ssl: { rejectUnauthorized: false },
       entities: [
         CompanyEntity,
@@ -27,7 +31,7 @@ import { CompanyModule } from './company/company.module';
         TicketEntity,
         UsersEntity,
       ],
-      // synchronize: true, // Nao utilizar em prod
+      synchronize: false, // Nao utilizar em prod
     } as TypeOrmModuleOptions),
     UsersModule, //criado em aula
     CompanyModule,
