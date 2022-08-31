@@ -31,7 +31,7 @@ import { CompanyModule } from './company/company.module';
         TicketEntity,
         UsersEntity,
       ],
-      synchronize: false, // Nao utilizar em prod
+      synchronize: true, // Nao utilizar em prod
     } as TypeOrmModuleOptions),
     UsersModule, //criado em aula
     CompanyModule,
